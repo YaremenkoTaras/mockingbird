@@ -1,9 +1,9 @@
 import React, {Component} from "react";
 import './list.css'
 import ListItem from "../list-item";
+import {connect} from 'react-redux'
 
-export default class List extends Component {
-
+class List extends Component {
     render() {
         const {itemList} = this.props;
         return (
@@ -18,5 +18,10 @@ export default class List extends Component {
             </ul>
         );
     }
+}
 
+const mapStateToProps = ({itemList}) => {
+    return {itemList}
 };
+
+export default connect(mapStateToProps)(List);
