@@ -1,8 +1,10 @@
 import React from "react";
-import './app.css'
+import './app.css';
+import {withDataService} from '../hoc';
 
-const App = () => {
+const App = ({dataService}) => {
+    console.log(dataService.getBooks());
     return <div>App</div>
 };
 
-export default App;
+export default withDataService()(App);

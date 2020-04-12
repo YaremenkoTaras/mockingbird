@@ -8,12 +8,12 @@ const withDataService = () => (Wrapped) => {
                 {
                     (dataService) => {
                         return (<Wrapped {...props}
-                                        dataService={dataService}/>);
+                                         dataService={dataService}/>);
                     }
                 }
             </DataServiceConsumer>
         );
     }
-}
+};
 
 export default withDataService;

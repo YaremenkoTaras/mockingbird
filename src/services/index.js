@@ -1,3 +1,5 @@
-// import {DataProvider, DataConsumer} from "./data-service";
-//
-// export default
+import DataService from "./data-service";
+
+export {
+    DataService
+};
