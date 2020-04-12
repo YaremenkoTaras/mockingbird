@@ -1,12 +1,12 @@
-const booksLoaded = (newBooks) => {
+const itemsLoaded = (newItemList) => {
     return {
-        type: 'BOOKS_LOADED',
-        payload: newBooks,
+        type: 'ITEMS_LOADED',
+        payload: newItemList,
 
     };
 };
 
 export {
-    booksLoaded,
+    itemsLoaded as actionItemsLoaded,
 
 };
