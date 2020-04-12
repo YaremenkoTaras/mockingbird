@@ -1,15 +1,55 @@
 export default class DataService {
-    getBooks() {
-        return [
-            {
-                id: 1,
-                title: 'Release it!',
-            },
-
-            {
-                id: 2,
-                title: 'Concurrency in practice'
-            },
-        ];
+    getMovies() {
+        return        [{"id":1,"title":"Branded","genre":"Western","author":"Fabe Cristofaro"},
+            {"id":2,"title":"Marie-Jo and Her 2 Lovers (Marie-Jo et ses 2 amours)","genre":"Comedy|Drama","author":"Bartel Rodwell"},
+            {"id":3,"title":"Shadow, The","genre":"Action|Adventure|Fantasy|Mystery","author":"Hayyim di Rocca"},
+            {"id":4,"title":"They Made Me a Criminal (I Became a Criminal) (They Made Me a Fugitive)","genre":"Crime|Drama","author":"Catlee Meeks"},
+            {"id":5,"title":"Southern District (Zona Sur)","genre":"Drama","author":"Estrellita Goskar"},
+            {"id":6,"title":"Fatal Beauty","genre":"Action|Comedy|Crime|Drama","author":"Lexis Blincoe"},
+            {"id":7,"title":"Tokyo Joe","genre":"Drama|Thriller","author":"Wilhelmina Cater"},
+            {"id":8,"title":"Safe","genre":"Thriller","author":"Tamar Eivers"},
+            {"id":9,"title":"Basket Case 3: The Progeny","genre":"Comedy|Horror","author":"Timmie Seleway"},
+            {"id":10,"title":"8 Seconds","genre":"Drama","author":"Nolly Kirkbright"},
+            {"id":11,"title":"Nanking","genre":"Documentary|War","author":"Griffie Breckwell"},
+            {"id":12,"title":"All the Vermeers in New York","genre":"Comedy|Drama|Romance","author":"Guillema Sleight"},
+            {"id":13,"title":"Ghosts of Girlfriends Past","genre":"Comedy|Fantasy|Romance","author":"Cindee Comello"},
+            {"id":14,"title":"Welcome to Macintosh","genre":"Documentary","author":"Rori Filgate"},
+            {"id":15,"title":"The War at Home","genre":"Documentary|War","author":"Rebecca Baistow"},
+            {"id":16,"title":"Wayne's World","genre":"Comedy","author":"Staford Godbert"},
+            {"id":17,"title":"Alice in Wonderland","genre":"Adventure|Animation|Children|Fantasy|Musical","author":"Rena Killeley"},
+            {"id":18,"title":"Funny Thing Happened on the Way to the Forum, A","genre":"Comedy|Musical","author":"Janeta Lowers"},
+            {"id":19,"title":"Oz the Great and Powerful","genre":"Action|Adventure|Fantasy|IMAX","author":"Washington Thams"},
+            {"id":20,"title":"Pee-wee's Big Adventure","genre":"Adventure|Comedy","author":"Tiffani Kinnar"},
+            {"id":21,"title":"Quebrando o Tabu","genre":"Documentary","author":"Kathi Manktelow"},
+            {"id":22,"title":"Triumph of the Nerds, The: The Rise of Accidental Empires","genre":"Documentary","author":"Chris Pitcaithly"},
+            {"id":23,"title":"Wish Me Away","genre":"Documentary","author":"Coriss Hatrey"},
+            {"id":24,"title":"New One-Armed Swordsman, The (Xin du bi dao)","genre":"Action|Drama|War","author":"Emelita Hallagan"},
+            {"id":25,"title":"Mephisto","genre":"Drama|War","author":"Berne Haldin"},
+            {"id":26,"title":"3 Ring Circus","genre":"Comedy","author":"Darn Darnell"},
+            {"id":27,"title":"Igor","genre":"Animation|Comedy","author":"Twyla Izat"},
+            {"id":28,"title":"Which Way Home","genre":"Documentary","author":"Daisy Vayro"},
+            {"id":29,"title":"Circumstance","genre":"Drama","author":"Korrie Burgoine"},
+            {"id":30,"title":"301, 302 (301/302)","genre":"Horror|Mystery|Thriller","author":"Corrina Makiver"},
+            {"id":31,"title":"Elena","genre":"Drama","author":"Sydelle Mallett"},
+            {"id":32,"title":"Evilspeak","genre":"Horror|Sci-Fi","author":"Willard Glaum"},
+            {"id":33,"title":"Slasher","genre":"Documentary","author":"Jephthah Bartolomeazzi"},
+            {"id":34,"title":"Mata Hari","genre":"Drama|Romance","author":"Tabbi Frankowski"},
+            {"id":35,"title":"Rabid Grannies (Mémés cannibales, Les)","genre":"Comedy|Horror","author":"Tawnya Pymar"},
+            {"id":36,"title":"Linda Linda Linda","genre":"Comedy|Drama","author":"Kandace Vanichev"},
+            {"id":37,"title":"That Forsyte Woman","genre":"Drama|Romance","author":"Jayson Brumpton"},
+            {"id":38,"title":"Change of Habit","genre":"Drama","author":"Sutherland Southcombe"},
+            {"id":39,"title":"Bamba, La","genre":"Drama","author":"Meryl Colwill"},
+            {"id":40,"title":"Beverly Hills Cop II","genre":"Action|Comedy|Crime|Thriller","author":"Mahala Sherston"},
+            {"id":41,"title":"Changeling","genre":"Crime|Drama|Mystery","author":"Rozelle Dickons"},
+            {"id":42,"title":"Time Without Pity","genre":"Crime|Drama|Mystery","author":"Lian Gauche"},
+            {"id":43,"title":"Grand Canyon","genre":"Crime|Drama","author":"Tillie Remirez"},
+            {"id":44,"title":"Dam Busters, The","genre":"Action|Drama|War","author":"Crissie Pullar"},
+            {"id":45,"title":"Small Cuts (Petites coupures)","genre":"Drama|Romance","author":"Darnell Godly"},
+            {"id":46,"title":"The Seven Males","genre":"Comedy|Western","author":"Dolly Bodley"},
+            {"id":47,"title":"Restless Souls (Bag det stille ydre)","genre":"Drama|Horror|Mystery","author":"Terri Puckham"},
+            {"id":48,"title":"Looking for Eric","genre":"Comedy|Drama|Fantasy","author":"Niko Veare"},
+            {"id":49,"title":"Gypsy Moths, The","genre":"Drama","author":"Parker Theodoris"},
+            {"id":50,"title":"Prospero's Books","genre":"Drama|Fantasy","author":"Rafaello Blackett"}]
+            ;
     }
 }
