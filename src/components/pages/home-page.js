@@ -1,9 +1,9 @@
 import React from "react";
-import List from "../list";
+import ItemList from "../item-list";
 
 const HomePage = () => {
     return (
-        <List/>
+        <ItemList/>
     );
 };
 

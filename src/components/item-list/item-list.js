@@ -1,12 +1,12 @@
 import React, {Component} from "react";
-import './list.css'
-import ListItem from "../list-item";
+import './item-list.css'
+import ItemDetails from "../item-details";
 import {connect} from 'react-redux'
 import {withDataService} from '../hoc'
 import {actionItemsLoaded} from "../../actions";
 import compose from "../../utils";
 
-class List extends Component {
+class ItemList extends Component {
 
     componentDidMount() {
         const {dataService} = this.props;
@@ -21,7 +21,7 @@ class List extends Component {
                 {
                     itemList.map((item) => {
                         return (
-                            <li key={item.id}><ListItem item={item}/></li>
+                            <li key={item.id}><ItemDetails item={item}/></li>
                         );
                     })
                 }
@@ -38,4 +38,4 @@ const mapStateToProps = ({itemList}) => {
 export default compose(
     withDataService(),
     connect(mapStateToProps, {actionItemsLoaded})
-)(List);
+)(ItemList);

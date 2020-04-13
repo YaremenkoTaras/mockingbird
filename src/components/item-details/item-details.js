@@ -1,7 +1,7 @@
 import React, {Fragment} from "react";
-import './list-item.css'
+import './item-details.css'
 
-const ListItem = ({item}) => {
+const ItemDetails = ({item}) => {
     const {title, genre} = item;
     return (
         <Fragment>
@@ -11,5 +11,5 @@ const ListItem = ({item}) => {
     );
 };
 
-export default ListItem;
+export default ItemDetails;
 
