@@ -6,7 +6,14 @@ const itemsLoaded = (newItemList) => {
     };
 };
 
+const itemsRequested = () => {
+    return {
+        type: 'ITEMS_REQUESTED',
+    };
+};
+
 export {
     itemsLoaded as actionItemsLoaded,
+    itemsRequested as actionItemsRequested,
 
 };

@@ -3,16 +3,17 @@ import './item-list.css'
 import ItemDetails from "../item-details";
 import {connect} from 'react-redux'
 import {withDataService} from '../hoc'
-import {actionItemsLoaded} from "../../actions";
+import {actionItemsLoaded, actionItemsRequested} from "../../actions";
 import compose from "../../utils";
 import Spinner from "../spinner";
 
 class ItemList extends Component {
 
     componentDidMount() {
-        const {dataService} = this.props;
+        const {dataService, actionItemsLoaded, actionItemsRequested} = this.props;
+        actionItemsRequested();
         dataService.getItems()
-            .then((data) => this.props.actionItemsLoaded(data));
+            .then((data) => actionItemsLoaded(data));
     }
 
     render() {
@@ -41,5 +42,5 @@ const mapStateToProps = ({itemList, loading}) => {
 
 export default compose(
     withDataService(),
-    connect(mapStateToProps, {actionItemsLoaded})
+    connect(mapStateToProps, {actionItemsLoaded, actionItemsRequested})
 )(ItemList);
