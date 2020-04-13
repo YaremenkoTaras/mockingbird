@@ -11,11 +11,20 @@ const reducer = (state = initialState, action) => {
             return {
                 itemList: [],
                 loading: true,
+                error: null,
             };
         case 'ITEMS_LOADED':
             return {
                 itemList: action.payload,
                 loading: false,
+                error: null,
+            };
+
+        case 'ITEMS_ERROR':
+            return {
+                itemList: [],
+                loading: false,
+                error: action.payload,
             };
 
         default:

@@ -3,24 +3,32 @@ import './item-list.css'
 import ItemDetails from "../item-details";
 import {connect} from 'react-redux'
 import {withDataService} from '../hoc'
-import {actionItemsLoaded, actionItemsRequested} from "../../actions";
+import {actionItemsError, actionItemsLoaded, actionItemsRequested} from "../../actions";
 import compose from "../../utils";
 import Spinner from "../spinner";
+import ErrorIndicator from "../error-indicator";
 
 class ItemList extends Component {
 
     componentDidMount() {
-        const {dataService, actionItemsLoaded, actionItemsRequested} = this.props;
+        const {dataService, actionItemsLoaded, actionItemsRequested, actionItemsError} = this.props;
+
         actionItemsRequested();
         dataService.getItems()
-            .then((data) => actionItemsLoaded(data));
+            .then((data) => actionItemsLoaded(data))
+            .catch((error) => actionItemsError(error));
     }
 
     render() {
-        const {itemList, loading} = this.props;
+        const {itemList, loading, error} = this.props;
+
         if (loading) {
-            return <Spinner/>
+            return <Spinner/>;
         }
+        if (error) {
+            return <ErrorIndicator/>;
+        }
+
         return (
             <ul className='item-list'>
                 {
@@ -35,12 +43,12 @@ class ItemList extends Component {
     }
 }
 
-const mapStateToProps = ({itemList, loading}) => {
-    return {itemList, loading}
+const mapStateToProps = ({itemList, loading, error}) => {
+    return {itemList, loading, error}
 };
 
 
 export default compose(
     withDataService(),
-    connect(mapStateToProps, {actionItemsLoaded, actionItemsRequested})
+    connect(mapStateToProps, {actionItemsLoaded, actionItemsRequested, actionItemsError})
 )(ItemList);

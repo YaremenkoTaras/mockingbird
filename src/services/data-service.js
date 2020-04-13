@@ -407,7 +407,13 @@ export default class DataService {
     getItems() {
         return new Promise((resolve, reject) => {
             setTimeout(() => {
-                resolve(this.data);
+                let number = Math.floor(Math.random() * 100);
+                console.log(number)
+                if (number > 25) {
+                    resolve(this.data);
+                } else {
+                    reject(new Error('Something bad happened'));
+                }
             }, 800);
         });
     }
