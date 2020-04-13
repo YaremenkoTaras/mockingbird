@@ -7,20 +7,20 @@ const initialState = {
 const reducer = (state = initialState, action) => {
 
     switch (action.type) {
-        case 'ITEMS_REQUESTED':
+        case 'FETCH_ITEMS_REQUEST':
             return {
                 itemList: [],
                 loading: true,
                 error: null,
             };
-        case 'ITEMS_LOADED':
+        case 'FETCH_ITEMS_SUCCESS':
             return {
                 itemList: action.payload,
                 loading: false,
                 error: null,
             };
 
-        case 'ITEMS_ERROR':
+        case 'FETCH_ITEMS_FAILURE':
             return {
                 itemList: [],
                 loading: false,

@@ -1,6 +1,6 @@
 const itemsLoaded = (newItemList) => {
     return {
-        type: 'ITEMS_LOADED',
+        type: 'FETCH_ITEMS_SUCCESS',
         payload: newItemList,
 
     };
@@ -8,20 +8,26 @@ const itemsLoaded = (newItemList) => {
 
 const itemsRequested = () => {
     return {
-        type: 'ITEMS_REQUESTED',
+        type: 'FETCH_ITEMS_REQUEST',
         loading: true,
     };
 };
 
 const itemsError = (error) => {
     return {
-        type: 'ITEMS_ERROR',
+        type: 'FETCH_ITEMS_FAILURE',
         payload: error,
     };
 };
 
+const fetchItems = (dispatch, dataService) => () => {
+    dispatch(itemsRequested());
+    dataService.getItems()
+        .then((data) => dispatch(itemsLoaded(data)))
+        .catch((error) => dispatch(itemsError(error)));
+};
+
 export {
-    itemsLoaded as actionItemsLoaded,
-    itemsRequested as actionItemsRequested,
-    itemsError as actionItemsError,
+    fetchItems,
+
 };

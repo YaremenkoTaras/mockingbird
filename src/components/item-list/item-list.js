@@ -3,7 +3,7 @@ import './item-list.css'
 import ItemDetails from "../item-details";
 import {connect} from 'react-redux'
 import {withDataService} from '../hoc'
-import {actionItemsError, actionItemsLoaded, actionItemsRequested} from "../../actions";
+import {fetchItems} from "../../actions";
 import compose from "../../utils";
 import Spinner from "../spinner";
 import ErrorIndicator from "../error-indicator";
@@ -42,15 +42,9 @@ const mapStateToProps = ({itemList, loading, error}) => {
     return {itemList, loading, error}
 };
 
-const mapDispatchToProps = (dispatch, ownProps) => {
-    const {dataService} = ownProps;
+const mapDispatchToProps = (dispatch, {dataService}) => {
     return {
-        fetchItems: () => {
-            dispatch(actionItemsRequested());
-            dataService.getItems()
-                .then((data) => dispatch(actionItemsLoaded(data)))
-                .catch((error) => dispatch(actionItemsError(error)));
-        }
+        fetchItems: fetchItems(dispatch, dataService)
     }
 };
 
