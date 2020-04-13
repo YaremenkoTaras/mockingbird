@@ -11,12 +11,7 @@ import ErrorIndicator from "../error-indicator";
 class ItemList extends Component {
 
     componentDidMount() {
-        const {dataService, actionItemsLoaded, actionItemsRequested, actionItemsError} = this.props;
-
-        actionItemsRequested();
-        dataService.getItems()
-            .then((data) => actionItemsLoaded(data))
-            .catch((error) => actionItemsError(error));
+        this.props.fetchItems();
     }
 
     render() {
@@ -47,8 +42,19 @@ const mapStateToProps = ({itemList, loading, error}) => {
     return {itemList, loading, error}
 };
 
+const mapDispatchToProps = (dispatch, ownProps) => {
+    const {dataService} = ownProps;
+    return {
+        fetchItems: () => {
+            dispatch(actionItemsRequested());
+            dataService.getItems()
+                .then((data) => dispatch(actionItemsLoaded(data)))
+                .catch((error) => dispatch(actionItemsError(error)));
+        }
+    }
+};
 
 export default compose(
     withDataService(),
-    connect(mapStateToProps, {actionItemsLoaded, actionItemsRequested, actionItemsError})
+    connect(mapStateToProps, mapDispatchToProps)
 )(ItemList);
