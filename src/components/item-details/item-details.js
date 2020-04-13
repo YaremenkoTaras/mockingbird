@@ -10,7 +10,7 @@ const ItemDetails = ({item}) => {
             </div>
 
             <div className="item-info">
-                <a href="#" className="item-title">{title}</a>
+                <span className="item-title">{title}</span>
                 <div className="item-genre">{genre}</div>
                 <div className="item-author">{author}</div>
                 <div className="item-price">{price}</div>

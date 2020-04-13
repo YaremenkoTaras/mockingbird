@@ -1,6 +1,6 @@
 const initialState = {
     itemList: [],
-
+    loading: true,
 };
 
 
@@ -10,6 +10,7 @@ const reducer = (state = initialState, action) => {
         case 'ITEMS_LOADED':
             return {
                 itemList: action.payload,
+                loading: false
             };
 
         default:

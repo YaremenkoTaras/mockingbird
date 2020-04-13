@@ -5,17 +5,21 @@ import {connect} from 'react-redux'
 import {withDataService} from '../hoc'
 import {actionItemsLoaded} from "../../actions";
 import compose from "../../utils";
+import Spinner from "../spinner";
 
 class ItemList extends Component {
 
     componentDidMount() {
         const {dataService} = this.props;
-        const data = dataService.getMovies();
-        this.props.actionItemsLoaded(data);
+        dataService.getItems()
+            .then((data) => this.props.actionItemsLoaded(data));
     }
 
     render() {
-        const {itemList} = this.props;
+        const {itemList, loading} = this.props;
+        if (loading) {
+            return <Spinner/>
+        }
         return (
             <ul className='item-list'>
                 {
@@ -30,8 +34,8 @@ class ItemList extends Component {
     }
 }
 
-const mapStateToProps = ({itemList}) => {
-    return {itemList}
+const mapStateToProps = ({itemList, loading}) => {
+    return {itemList, loading}
 };
 
 

@@ -1,14 +1,19 @@
 import React from "react";
 import "./shop-header.css"
+import {Link} from "react-router-dom";
 
 const ShopHeader = ({itemsNum, total}) => {
     return (
         <header className="shop-header">
-            <a className="logo text-dark">Mockingbird</a>
-            <a className="shopping-cart">
-                <i className="cart-icon fa fa-shopping-cart"/>
-                {itemsNum} items (${total})
-            </a>
+            <Link to="/">
+                <div className="logo text-dark">Mockingbird</div>
+            </Link>
+            <Link to="/cart">
+                <div className="shopping-cart">
+                    <i className="cart-icon fa fa-shopping-cart"/>
+                    {itemsNum} items (${total})
+                </div>
+            </Link>
         </header>
     );
 };
