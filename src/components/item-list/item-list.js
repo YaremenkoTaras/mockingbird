@@ -17,7 +17,7 @@ class ItemList extends Component {
     render() {
         const {itemList} = this.props;
         return (
-            <ul>
+            <ul className='item-list'>
                 {
                     itemList.map((item) => {
                         return (

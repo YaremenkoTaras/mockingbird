@@ -1,0 +1,43 @@
+.item-details {
+    display: flex;
+    margin: 15px;
+}
+
+.item-details .item-cover {
+    flex-shrink: 0;
+    width: 120px;
+    margin-right: 30px;
+}
+
+.item-details .item-cover img {
+    max-width: 100%;
+}
+
+.item-details .item-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-bottom: 10px;
+    align-items: flex-start;
+}
+
+.item-details .item-info .item-title {
+    font-size: 1.5rem;
+}
+
+
+.item-details .item-info .item-genre {
+    font-size: 1.2rem;
+}
+
+.item-details .item-info .item-author {
+    font-size: 0.9rem;
+}
+
+.item-details .item-info .item-price {
+    font-size: 1.6rem;
+    font-family: "Playfair Display", Georgia, serif;
+    padding-left: 1rem;
+    color: cadetblue;
+}
+
