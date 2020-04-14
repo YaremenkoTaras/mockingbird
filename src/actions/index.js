@@ -20,7 +20,7 @@ const itemsError = (error) => {
     };
 };
 
-const fetchItems = (dispatch, dataService) => () => {
+const fetchItems = (dataService) => () => (dispatch) => {
     dispatch(itemsRequested());
     dataService.getItems()
         .then((data) => dispatch(itemsLoaded(data)))

@@ -6,6 +6,7 @@ import compose from "../../utils";
 import {withDataService} from "../../components/hoc";
 import {connect} from "react-redux";
 import ItemList from "../../components/item-list";
+import {bindActionCreators} from "redux";
 
 class ItemListContainer extends Component {
 
@@ -32,11 +33,10 @@ const mapStateToProps = ({itemList: {items, loading, error}}) => {
 };
 
 const mapDispatchToProps = (dispatch, {dataService}) => {
-    return {
-        fetchItems: fetchItems(dispatch, dataService),
-        onAddToCart: (id) => dispatch(itemAddedToCart(id)),
-
-    };
+    return bindActionCreators({
+        fetchItems: fetchItems(dataService),
+        onAddToCart: itemAddedToCart,
+    }, dispatch);
 };
 
 export default compose(
