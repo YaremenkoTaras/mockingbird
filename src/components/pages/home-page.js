@@ -1,10 +1,10 @@
 import React from "react";
-import ItemList from "../item-list";
+import ItemListContainer from "../../containers/item-list-container/item-list-container";
 
 const HomePage = () => {
     return (
         <div>
-            <ItemList/>
+            <ItemListContainer/>
         </div>
     );
 };
