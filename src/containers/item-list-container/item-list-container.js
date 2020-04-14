@@ -14,7 +14,7 @@ class ItemListContainer extends Component {
     }
 
     render() {
-        const {itemList, loading, error, onAddToCart} = this.props;
+        const {items, loading, error, onAddToCart} = this.props;
 
         if (loading) {
             return <Spinner/>;
@@ -23,12 +23,12 @@ class ItemListContainer extends Component {
             return <ErrorIndicator/>;
         }
 
-        return <ItemList itemList={itemList} onAddToCart={onAddToCart}/>
+        return <ItemList items={items} onAddToCart={onAddToCart}/>
     }
 }
 
-const mapStateToProps = ({itemList, loading, error}) => {
-    return {itemList, loading, error}
+const mapStateToProps = ({itemList: {items, loading, error}}) => {
+    return {items, loading, error}
 };
 
 const mapDispatchToProps = (dispatch, {dataService}) => {

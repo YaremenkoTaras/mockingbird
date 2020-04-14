@@ -2,11 +2,11 @@ import React from "react";
 import './item-list.css'
 import ItemDetails from "../item-details";
 
-const ItemList = ({itemList, onAddToCart}) => {
+const ItemList = ({items, onAddToCart}) => {
     return (
         <ul className='item-list'>
             {
-                itemList.map((item) => {
+                items.map((item) => {
                     return (
                         <li key={item.id}>
                             <ItemDetails item={item}
