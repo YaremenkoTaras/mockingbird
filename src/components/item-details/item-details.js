@@ -13,7 +13,7 @@ const ItemDetails = ({item, onAddToCart}) => {
                 <span className="item-title">{title}</span>
                 <div className="item-genre">{genre}</div>
                 <div className="item-author">{author}</div>
-                <div className="item-price">{price}</div>
+                <div className="item-price">${price}</div>
                 <button
                     onClick={onAddToCart}
                     className="btn btn-info add-to-cart">

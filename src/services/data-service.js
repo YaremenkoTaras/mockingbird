@@ -4,7 +4,7 @@ export default class DataService {
     data = [
         {
             "id": 1,
-            "price": 10,
+            "price": 50,
             "image": `${imageUrl}`,
             "title": "Branded",
             "genre": "Western",
@@ -65,8 +65,7 @@ export default class DataService {
         return new Promise((resolve, reject) => {
             setTimeout(() => {
                 let number = Math.floor(Math.random() * 100);
-                console.log(number)
-                if (number > 25) {
+                if (number > 10) {
                     resolve(this.data);
                 } else {
                     reject(new Error('Something bad happened'));
