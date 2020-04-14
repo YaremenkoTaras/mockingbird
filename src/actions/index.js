@@ -27,7 +27,14 @@ const fetchItems = (dispatch, dataService) => () => {
         .catch((error) => dispatch(itemsError(error)));
 };
 
+const itemAddedToCart = (id) => {
+    return {
+        type: "ITEM_ADDED_TO_CART",
+        payload: id
+    }
+};
+
 export {
     fetchItems,
-
+    itemAddedToCart,
 };
