@@ -6,7 +6,6 @@ const initialState = {
     orderTotal: 300,
 };
 
-
 const reducer = (state = initialState, action) => {
 
     console.info(`Action: ${action.type}`);
@@ -35,35 +34,45 @@ const reducer = (state = initialState, action) => {
                 error: action.payload,
             };
         case 'ITEM_ADDED_TO_CART':
-            const id = action.payload;
-            const {cartItemList, itemList} = state;
-            const itemToAdd = itemList.find((item) => item.id === id);
-            const itemPosition = cartItemList.findIndex((item) => item.id === id);
-            const cartItem = cartItemList[itemPosition];
-            const updatedCartItem = updateCartItem(itemToAdd, cartItem);
-            return {
-                ...state,
-                cartItemList: updateCartItemList(cartItemList, updatedCartItem, itemPosition),
-            };
+            return updateOrder(state, action.payload, 1);
+
+        case 'ITEM_REMOVED_FROM_CART':
+            return updateOrder(state, action.payload, -1);
+        case 'ALL_ITEMS_REMOVED_FROM_CART':
+            let item = state.cartItemList.find(({id}) => id === action.payload);
+            return updateOrder(state, action.payload, -item.count);
 
         default:
             return state;
     }
 };
 
-const updateCartItemList = (cartItemList, item, idx) => {
-    if (idx === -1) {
+const updateOrder = (state, id, quantity) => {
+    const {cartItemList, itemList} = state;
+    const itemToAdd = itemList.find((item) => item.id === id);
+    const cartItem = cartItemList.find((item) => item.id === id);
+    return {
+        ...state,
+        cartItemList: updateCartItemList(cartItemList, updateCartItem(itemToAdd, cartItem, quantity)),
+    };
+};
+
+
+const updateCartItemList = (cartItemList, item) => {
+    const idx = cartItemList.findIndex(({id}) => id === item.id);
+    if (item.count === 0) {
+        return [...cartItemList.slice(0, idx), ...cartItemList.slice(idx + 1)]
+    } else if (idx === -1) {
         return [...cartItemList, item];
     } else {
         return [...cartItemList.slice(0, idx), item, ...cartItemList.slice(idx + 1)];
     }
-}
-
-const updateCartItem = (item, cartItem = {}) => {
-    const {id = item.id, title = item.title, price = item.price, count = 0} = cartItem;
-    return {id, title, count: count + 1, price};
 };
 
+const updateCartItem = (item, cartItem = {}, quantity) => {
+    const {id = item.id, title = item.title, price = item.price, count = 0} = cartItem;
+    return {id, title, count: count + quantity, price};
+};
 
 export default reducer;
 
